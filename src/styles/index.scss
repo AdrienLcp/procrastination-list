@@ -1,0 +1,28 @@
+@use 'reset';
+@use 'vars';
+
+.light {
+  transition: 1s;
+  background: vars.$white;
+  color: vars.$black;
+}
+
+.dark {
+  transition: 1s;
+  background: vars.$black;
+  color: vars.$white;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: vars.$white;
+    color: vars.$black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: vars.$black;
+    color: vars.$white;
+  }
+}
