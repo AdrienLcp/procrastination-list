@@ -1,38 +1,49 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
 import AddButton from '../../components/AddButton';
+import SettingsMenu from '../../components/SettingsMenu';
+import Header from '../../components/Header';
 
-import './styles.scss';
+import './style.scss';
 
 const Home = () => {
 
   const { theme } = useContext(ThemeContext);
 
-  // const [lists, setLists] = useState({});
+  const [hasLists, setHasLists] = useState(false);
+  const [lists, setLists] = useState(null);
 
-  // useEffect(() => {
-    // const previousLists = localStorage.getItem('lists');
+  useEffect(() => {
+    const previousLists = localStorage.getItem('lists');
 
-    // if (previousLists !== null) {
-    //   setLists(previousLists);
-    // };
-  // }, []);
+    if (previousLists !== null) {
+      setLists(previousLists);
+      setHasLists(true);
+    } else {
+      setHasLists(false);
+    };
+  }, []);
 
   return (
     <div className={theme === 'light' ? 'home light' : 'home dark'}>
 
-      <h1 className='home--title'>
-        Ma liste de procrastination
-      </h1>
+      <SettingsMenu />
+      
+      <Header />
 
-      <AddButton />
+      <main>
 
-      <section className='home--container'>
-        {/* {lists} */}
-      </section>
+        <AddButton
+          hasLists={hasLists}
+        />
 
+        <section className='home--container'>
+          { lists === null ? '' : lists}
+        </section>
+
+      </main>
     </div>
   );
 };

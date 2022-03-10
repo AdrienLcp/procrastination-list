@@ -1,0 +1,12 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.settings {
+  @include animApparition;
+  @include flexCenter;
+  @include posFixed(0, 0, auto, auto);
+
+  transform: translateY(-100%);
+  padding: 1em;
+  border-bottom-left-radius: 5px;
+}

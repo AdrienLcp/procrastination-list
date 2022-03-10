@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 
-import './styles.scss';
+import './style.scss';
 
 const DarkMode = () => {
 
@@ -11,11 +11,7 @@ const DarkMode = () => {
     <section
       className='dark_mode'
     >
-      <span
-        className={theme === 'light' ? 'light dark_mode--title' : 'dark dark_mode--title'}
-      >
-        🌛
-      </span>
+
       <input
         type='checkbox'
         className='dark_mode--input'
@@ -24,6 +20,11 @@ const DarkMode = () => {
           toggleTheme();
         }}
       />
+
+      <span className='dark_mode--span'>
+        Mode sombre
+      </span>
+
     </section>
   );
 };

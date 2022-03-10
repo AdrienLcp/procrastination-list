@@ -1,16 +1,8 @@
 @use '../../styles/vars';
+@import '../../styles/mixins';
 
 .dark_mode {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-
-  &--title {
-    margin-right: 0.2em;
-    z-index: 2;
-  }
+  @include flexCenter;
 
   &--input {
     position: relative;
@@ -44,5 +36,9 @@
         left: 20px;
       }
     }
+  }
+
+  &--span {
+    margin-left: 0.5em;
   }
 }

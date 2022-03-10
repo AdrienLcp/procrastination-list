@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import Modal from '../Modal';
 
-import './styles.scss';
+import './style.scss';
 
 const NewListForm = ({ setShowForm }) => {
 

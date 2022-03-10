@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
-import './styles.scss';
+import './style.scss';
 
 const Modal = (props) => {
 

@@ -1,0 +1,71 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.button {
+  @include flexCenter;
+  border: none;
+  background: transparent;
+  transition: .2s;
+  flex-direction: column;
+
+  &.no_list {
+    @include posCenter;
+  }
+
+  &--icon {
+    @include flexCenter;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2em;
+
+    &.light {
+      border: 2px solid vars.$black;
+    }
+
+    &.dark {
+      border: 2px solid vars.$white;
+    }
+  }
+  
+  &--label {
+    margin-top: 0.5em;
+    width: 10em;
+    font-weight: bold;
+  }
+
+  &:active {
+    transform: translate(-50%, -45%) scale(0.9);
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .button {
+
+    &--icon {
+      border-radius: 5px;
+      transition: none !important;
+    }
+  
+    &--label {
+      margin-top: 0;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      transition: .3s !important;
+      transform: translateY(1em);
+    }
+
+    &:hover {
+      .button--icon {
+        background: vars.$main-hover;
+      }
+
+      .button--label {
+        opacity: 1;
+        transform: translateY(3em);
+      }
+    }
+  }
+}
