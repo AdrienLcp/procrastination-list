@@ -5,19 +5,26 @@ import './styles.scss';
 
 const DarkMode = () => {
 
-  const { toggleTheme, theme} = useContext(ThemeContext);
+  const { toggleTheme, theme } = useContext(ThemeContext);
 
   return (
-    <div className='dark_mode'>
-      <button
-        className={theme === 'light' ? 'dark_mode--button light' :  'dark_mode--button dark'}
+    <section
+      className='dark_mode'
+    >
+      <span
+        className={theme === 'light' ? 'light dark_mode--title' : 'dark dark_mode--title'}
+      >
+        🌛
+      </span>
+      <input
+        type='checkbox'
+        className='dark_mode--input'
+        checked={theme === 'dark' ? true : false}
         onClick={() => {
           toggleTheme();
         }}
-      >
-        {theme === 'light' ? 'Dark mode' : 'Light mode'}
-      </button>
-    </div>
+      />
+    </section>
   );
 };
 

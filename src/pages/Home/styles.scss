@@ -1,10 +1,10 @@
 @use '../../styles/vars';
 
 .home {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 
   &--title {
     margin-top: 1em;
@@ -18,59 +18,5 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-
-    &--button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background: transparent;
-
-      &--item {
-        z-index: 2;
-        width: 50px;
-        height: 50px;
-        border-radius: 5px;
-        font-size: 2em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &.light {
-          border: 1px solid vars.$black;
-        }
-
-        &.dark {
-          border: 1px solid vars.$white;
-        }
-      }
-      
-      &--label {
-        position: absolute;
-        z-index: 1;
-        opacity: 0;
-        transition: .3s;
-        color: inherit;
-        transform: translateY(1.5em);
-
-        &.light {
-          color: vars.$black;
-        }
-
-        &.dark {
-          color: vars.$white;
-        }
-      }
-
-      &:hover {
-        .home--container--button--label {
-          opacity: 1;
-          transform: translateY(3.5em);
-        }
-      }
-
-
-    }
   }
 }

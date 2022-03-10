@@ -1,12 +1,24 @@
 import React, { useContext } from 'react';
 
-import './styles.scss';
-
 import { ThemeContext } from '../../context/ThemeContext';
+
+import AddButton from '../../components/AddButton';
+
+import './styles.scss';
 
 const Home = () => {
 
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+
+  // const [lists, setLists] = useState({});
+
+  // useEffect(() => {
+    // const previousLists = localStorage.getItem('lists');
+
+    // if (previousLists !== null) {
+    //   setLists(previousLists);
+    // };
+  // }, []);
 
   return (
     <div className={theme === 'light' ? 'home light' : 'home dark'}>
@@ -15,17 +27,11 @@ const Home = () => {
         Ma liste de procrastination
       </h1>
 
-      <section className='home--container'>
-        <button className='home--container--button'>
-          <span className={theme === 'light' ? 'home--container--button--item light' : 'home--container--button--item dark'}>
-            +
-          </span>
-          <label className={theme === 'light' ? 'home--container--button--label light' : 'home--container--button--label dark'}>
-            Créer une liste
-          </label>
-        </button>
-      </section>
+      <AddButton />
 
+      <section className='home--container'>
+        {/* {lists} */}
+      </section>
 
     </div>
   );
