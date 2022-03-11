@@ -1,17 +1,64 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
+
+import { ThemeContext } from '../../context/ThemeContext';
 
 import DarkMode from '../DarkMode';
+import CloseButton from '../CloseButton';
 
 import './style.scss';
 
+import settings_white from '../../media/icons/settings_white.svg';
+import settings_black from '../../media/icons/settings_black.svg';
+
 const SettingsMenu = () => {
 
+  const { theme } = useContext(ThemeContext);
+
+  const buttonRef = useRef(null);
+  const settingsRef = useRef(null);
+
+  const openSettings = () => {
+    buttonRef.current.classList.add('opened');
+    settingsRef.current.classList.add('opened');
+  };
+
+  const closeSettings = () => {
+    buttonRef.current.classList.remove('opened');
+    settingsRef.current.classList.remove('opened');
+  };
+
   return (
-    <section className='settings'>
+    <div className='settings'>
 
-      <DarkMode />
+      <section
+        className='settings--container'
+        ref={settingsRef}
+      >
+        
+        <CloseButton 
+          close={closeSettings}
+        />
 
-    </section>
+        <DarkMode />
+
+
+      </section>
+
+      <button
+        ref={buttonRef}
+        className='settings--button'
+        onClick={() => {
+          openSettings();
+        }}
+      >
+        <img
+          className='settings--button--img'
+          alt='Ouvrir les paramètres'
+          src={theme === 'light' ? settings_black : settings_white}
+        />
+      </button>
+
+    </div>
   );
 };
 

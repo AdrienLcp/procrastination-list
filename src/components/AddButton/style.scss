@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 @import '../../styles/mixins';
 
-.button {
+.add__button {
   @include flexCenter;
   border: none;
   background: transparent;
@@ -41,7 +41,7 @@
 }
 
 @media screen and (min-width: 850px) {
-  .button {
+  .add__button {
 
     &--icon {
       border-radius: 5px;
@@ -58,11 +58,11 @@
     }
 
     &:hover {
-      .button--icon {
+      .add__button--icon {
         background: vars.$main-hover;
       }
 
-      .button--label {
+      .add__button--label {
         opacity: 1;
         transform: translateY(3em);
       }

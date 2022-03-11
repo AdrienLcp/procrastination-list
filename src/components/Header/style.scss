@@ -1,8 +1,30 @@
 .header {
-  padding: 3em;
+  padding: 1em;
 
   &--title {
-    font-size: 3em;
     font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .header {
+    padding: 2em;
+
+    &--title {
+      text-align: start;
+      font-size: 2em;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .header {
+    padding: 3em;
+
+    &--title {
+      font-size: 3em;
+    }
   }
 }
