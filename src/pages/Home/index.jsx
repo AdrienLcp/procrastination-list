@@ -28,8 +28,6 @@ const Home = () => {
 
   return (
     <div className={theme === 'light' ? 'home light' : 'home dark'}>
-
-      <SettingsMenu />
       
       <Header />
 
@@ -44,6 +42,8 @@ const Home = () => {
         </section>
 
       </main>
+
+      <SettingsMenu />
     </div>
   );
 };

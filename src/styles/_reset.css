@@ -156,3 +156,9 @@ input,
 button {
   outline: 0;
 }
+
+/* personnal add */
+button {
+  border: none;
+  background: transparent;
+}

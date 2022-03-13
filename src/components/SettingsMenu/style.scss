@@ -2,94 +2,150 @@
 @import '../../styles/mixins';
 
 .settings {
-  @include animApparition(1s);
+  @include animApparition(1s, 1s);
+  @include posFixed(0, auto, auto, 0);
   @include flexCenter;
-  @include posFixed(auto, 0, 0, auto);
+  transform: translateY(-100%);
+  opacity: 0;
+
+  &.light {
+    .settings--container {
+      background: vars.$light-grey;
+      color: vars.$black;
+    }
+  }
+
+  &.dark {
+    .settings--container {
+      background: vars.$dark-grey;
+      color: vars.$white;
+    }
+
+    .settings--button::after {
+      color: vars.$white;
+    }
+  }
 
   &--button {
+    @include posAbsolute(0, auto, auto, 0);
     @include flexCenter;
-    border: none;
-    background: transparent;
-    height: 80px;
-    width: 80px;
-    transition: .2s;
+    height: 50px;
+    width: 50px;
+    transition: .3s;
     padding: 1em;
 
-    &.opened {
+    &::after {
+      content: 'Paramètres';
       position: absolute;
-      top: 0;
-      left: 1em;
+      margin-left: 0.5em;
+      color: vars.$white;
+      opacity: 0;
+      transform: translateX(35%);
+      transition: .3s;
+      color: inherit;
+    }
 
+    &.opened {
       &::after {
-        content: 'Paramètres';
-        margin-left: 1em;
-        font-size: 0.8em;
-        color: vars.$white;
+        opacity: 1;
+        transform: translateX(70%);
       }
     }
 
     &--img {
       height: 100%;
-      transition: .3s;
-
-      &:hover {
-        transform: rotate(135deg);;
-      }
     }
 
     &:active {
-      transform: scale(0.9) !important;
+      transform: scale(0.9);
     }
   }
 
   &--container {
-    transform: translateY(100%);
+    transform: translateY(-100%);
     opacity: 0;
-    padding: 1em;
     visibility: hidden;
-    background: vars.$dark-grey;
-    transition: .3s;
+    height: 0;
+    width: 100vw;
+    transition: .5s;
 
     &.opened {
+      @include posFixed(0, auto, auto, 0);
+      @include flexCenter;
+      height: 100vh;
       visibility: visible;
       opacity: 1;
       transform: translateY(0);
     }
-
-    // &--quit {
-    //   background: transparent;
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: center;
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-    //   width: 40px;
-    //   height: 40px;
-    //   border: none;
-    //   border-radius: 50%;
-    //   padding: 0.8em;
-    //   transition: transform .2s;
-    //   z-index: 2;
-    
-    //   &--label {
-    //     position: absolute;
-    //     visibility: hidden;
-    //   }
-    
-    //   &--icon {
-    //     background: transparent !important;
-    //     font-size: 40px;
-    //     transform: rotate(45deg);
-    //   }
-    
-    //   &:active {
-    //     transform: scale(0.8);
-    //   }
-    // }
   }
 }
 
 @media screen and (min-width: 850px) {
+  .settings {
+    @include posFixed(auto, 1em, 0, auto);
+    transform: translateY(100%);
+
+    &.light {
+      .settings--container {
+        border-top: 2px solid vars.$black;
+        border-right: 2px solid vars.$black;
+        border-left: 2px solid vars.$black;
+      }
+    }
+
+    &.dark {
+      .settings--container {
+        border-top: 2px solid vars.$white;
+        border-right: 2px solid vars.$white;
+        border-left: 2px solid vars.$white;
+      }
+    }
+
+    &--button {
+      @include posAbsolute(auto, 0, 0, auto);
+      width: 80px;
+      height: 80px;
+      transition: 1s;
   
+      &:hover {
+        transform: rotate(360deg);
+      }
+
+      &:active {
+        transform: rotate(360deg) scale(0.9);
+      }
+
+      &.opened {
+        width: 50px;
+        height: 50px;
+        transform: translate(-25em, -12em);
+        cursor: default;
+
+        &:hover {
+          transform: translate(-25em, -12em);
+        }
+
+        &:active {
+          transform: translate(-25em, -12em);
+        }
+      }
+
+      &--img {
+        transition: .3s;
+      }
+    }
+
+    &--container {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      width: 20em;
+      transform: translateY(100%);
+
+      &.opened {
+        @include posFixed(auto, 3em, 0, auto);
+        height: auto;
+        padding: 6em 4em 3em;
+      }
+    }
+  }
 }

@@ -15,7 +15,7 @@ const Header = () => {
   useEffect(() => {
     const previousUser = localStorage.getItem('user_name');
 
-    console.log(previousUser);
+    console.log('user précédent : ' + previousUser);
   }, []);
 
   return (

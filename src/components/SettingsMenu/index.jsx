@@ -28,7 +28,7 @@ const SettingsMenu = () => {
   };
 
   return (
-    <div className='settings'>
+    <div className={ theme === 'light' ? 'settings light' : 'settings dark'}>
 
       <section
         className='settings--container'
@@ -53,7 +53,7 @@ const SettingsMenu = () => {
       >
         <img
           className='settings--button--img'
-          alt='Ouvrir les paramètres'
+          alt="Paramètres de l'application"
           src={theme === 'light' ? settings_black : settings_white}
         />
       </button>

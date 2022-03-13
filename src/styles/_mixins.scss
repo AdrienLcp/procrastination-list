@@ -27,7 +27,7 @@
   left: $left;
 }
 
-@mixin animApparition ($delay: 0s) {
+@mixin animApparition ($time: 1s, $delay: 0s) {
   opacity: 0;
-  animation: apparition 1s $delay ease-out forwards;
+  animation: apparition $time $delay ease-out forwards;
 }

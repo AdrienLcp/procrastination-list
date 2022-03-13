@@ -2,13 +2,9 @@
 @import '../../styles/mixins';
 
 .close {
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  right: 0;
+  background: transparent !important;
+  @include flexCenter;
+  @include posAbsolute(0.5em, 0.5em, auto, auto);
   width: 40px;
   height: 40px;
   border: none;
@@ -34,31 +30,50 @@
 }
 
 @media screen and (min-width: 850px) {
-  
   .close {
+    @include posAbsolute(0, 0, auto, auto);
     border: 2px solid vars.$white;
     transform: translate(50%, -50%);
+    transition: transform .2s !important;
+
+    &.light {
+      border-color: vars.$black;
+      background: vars.$white !important;
+
+      .close--label {
+        color: vars.$black;
+      }
+    }
+
+    &.dark {
+      border-color: vars.$white;
+      background: vars.$black !important;
+
+      .close--label {
+        color: vars.$white;
+      }
+    }
 
     &--label {
       color: vars.$white;
       visibility: visible;
       opacity: 0;
       z-index: 1;
-      transform: translateY(0.5em);
+      transform: translateY(-0.5em);
       transition: .3s;
     }
 
     &:hover {
-      background: vars.$red;
+      background: vars.$red !important;
 
       .close--label {
         opacity: 1;
-        transform: translateY(2.5em);
+        transform: translateY(-2.5em);
       }
     }
 
     &:active {
-      transform: translate(50%, -50%) scale(0.8);
+      transform: translate(50%, -50%) scale(0.9);
     }
   }
 }

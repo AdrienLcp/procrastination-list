@@ -22,10 +22,12 @@
 
     &.light {
       border: 2px solid vars.$black;
+      background: transparent !important;
     }
 
     &.dark {
       border: 2px solid vars.$white;
+      background: transparent !important;
     }
   }
   
@@ -33,6 +35,7 @@
     margin-top: 0.5em;
     width: 10em;
     font-weight: bold;
+    background: transparent !important;
   }
 
   &:active {
@@ -49,8 +52,8 @@
     }
   
     &--label {
-      margin-top: 0;
       position: absolute;
+      margin-top: 0;
       z-index: 1;
       opacity: 0;
       transition: .3s !important;
@@ -59,7 +62,7 @@
 
     &:hover {
       .add__button--icon {
-        background: vars.$main-hover;
+        background: vars.$main-hover !important;
       }
 
       .add__button--label {

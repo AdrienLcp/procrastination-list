@@ -1,23 +1,20 @@
 @use '../../styles/vars';
+@import '../../styles/mixins';
 
 .behind {
-  position: fixed;
+  @include posFixed(0, auto, auto, 0);
   width: 100vw;
   height: 100vh;
-  z-index: 25;
+  z-index: 10;
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
+  @include posFixed(0, auto, auto, 0);
+  @include flexCenter;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 50;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &--container {
     max-width: 90vw;
@@ -31,7 +28,7 @@
     z-index: 30;
     position: relative;
     opacity: 0;
-    animation: apparition .5s ease-out forwards;
+    @include animApparition(1s);
   }
 }
 

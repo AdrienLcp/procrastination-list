@@ -9,9 +9,14 @@ const CloseButton = ({ close }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <button className='close' onClick={() => {close()}}>
+    <button
+      className={theme === 'light' ? 'light close' : 'dark close'}
+      onClick={() => {
+        close();
+      }}
+    >
 
-      <span className={theme === 'light' ? 'light close--icon' : 'dark close--icon'}>
+      <span className='close--icon'>
         +
       </span>
 

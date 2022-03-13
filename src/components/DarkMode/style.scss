@@ -3,23 +3,21 @@
 
 .dark_mode {
   @include flexCenter;
+  background: transparent !important;
 
   &--input {
     position: relative;
     width: 40px;
     height: 20px;
     background: #bdc3c7;
-    appearance: none;
     border-radius: 20px;
-    outline: none;
     transition: .3s;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 
     &::before {
-      position: absolute;
+      @include posAbsolute(0, auto, auto, 0);
       content: '';
-      left: 0;
       width: 20px;
       height: 20px;
       background: vars.$white;
@@ -29,7 +27,7 @@
       transition: .3s;
     }
 
-    &:checked {
+    &.checked {
       background: #3498db;
 
       &::before {
@@ -39,6 +37,18 @@
   }
 
   &--span {
-    margin-left: 0.5em;
+    margin-left: 1em;
+  }
+
+  &.light {
+    .dark_mode--span {
+      color: vars.$black;
+    }
+  }
+
+  &.dark {
+    .dark_mode--span {
+      color: vars.$white;
+    }
   }
 }

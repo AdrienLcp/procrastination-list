@@ -1,32 +1,55 @@
-import React, { useRef } from 'react';
+import React, { useState, useContext } from 'react';
 
+import { ThemeContext } from '../../context/ThemeContext';
 import Modal from '../Modal';
 
 import './style.scss';
 
 const NewListForm = ({ setShowForm }) => {
 
-  const modalRef= useRef(null);
+  const { theme } = useContext(ThemeContext);
 
-  const closeModal = () => {
-    modalRef.current.style.transition = '.3s';
-    modalRef.current.style.opacity = '0';
+  const [listName, setListName] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
 
-    setTimeout(() => {
-      setShowForm(false);
-    }, 300);
+  const handleChangeListName = (newName) => {
+    if (newName.length > 20) {
+      setAlertMessage('Le nom de votre liste ne doit pas dépasser 20 caractères')
+    } else {
+      setListName(newName);
+    };
   };
 
   return (
-    <div ref={modalRef}>
-      <Modal closeModal={closeModal}>
+    <Modal 
+      setShowModal={setShowForm}
+    >
 
-        <form className='new_list'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, pariatur necessitatibus doloribus itaque eligendi debitis facilis nihil, quam rem eveniet quibusdam incidunt magnam repellat corporis suscipit nulla veritatis perferendis? Voluptatibus assumenda reprehenderit commodi blanditiis quia et temporibus distinctio nam quos omnis inventore, magnam dolore, optio nisi, aliquam illum. Minima, sit!
-        </form>
-        
-      </Modal>
-    </div>
+      <form className='new_list'>
+        <h2 className='new_list--title'>
+          {listName === '' ? 'Nouvelle Liste' : listName}
+        </h2>
+
+
+
+        <label className="new_list--name">
+          Choisissez un nom pour votre liste
+          <input
+            type="text"
+            className="new_list--name--input"
+            placeholder={listName}
+            onChange={(event) => {
+              handleChangeListName(event.target.value);
+            }}
+          />
+        </label>
+
+        <span>
+          {alertMessage}
+        </span>
+      </form>
+      
+    </Modal>
   );
 };
 
