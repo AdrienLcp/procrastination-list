@@ -23,7 +23,7 @@ const DarkMode = () => {
       }}
     >
 
-      <button
+      <div
         ref={themeButtonRef}
         className={theme === 'dark' ? 'dark_mode--input checked' : 'dark_mode--input'}
       />

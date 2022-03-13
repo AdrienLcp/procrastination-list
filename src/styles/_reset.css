@@ -162,3 +162,7 @@ button {
   border: none;
   background: transparent;
 }
+
+input {
+  border: none;
+}

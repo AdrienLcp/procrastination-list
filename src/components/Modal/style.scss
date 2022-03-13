@@ -17,24 +17,33 @@
   z-index: 50;
 
   &--container {
-    max-width: 90vw;
-    z-index: 11;
-    display: flex;
+    @include animApparition(1s);
+    @include flexCenter;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    max-width: 90vw;
+    max-height: 80vh;
+    z-index: 11;
     padding: 4em 2em;
-    border-radius: 20px;
+    border-radius: 10px;
     z-index: 30;
     position: relative;
     opacity: 0;
-    @include animApparition(1s);
+
+    &.light {
+      border: 2px solid vars.$black;
+    }
+
+    &.dark {
+      border: 2px solid vars.$white;
+    }
   }
 }
 
 @media screen and (min-width: 850px) {
   .modal {
     &--container {
+      max-width: 50em;
+      max-height: 80vh;
       padding: 4em 4em 2em 4em;
     }
   }

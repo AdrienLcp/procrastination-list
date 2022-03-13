@@ -10,10 +10,12 @@ import './style.scss';
 
 const Home = () => {
 
+  
   const { theme } = useContext(ThemeContext);
-
+  
   const [hasLists, setHasLists] = useState(false);
   const [lists, setLists] = useState(null);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const previousLists = localStorage.getItem('lists');
@@ -29,7 +31,9 @@ const Home = () => {
   return (
     <div className={theme === 'light' ? 'home light' : 'home dark'}>
       
-      <Header />
+      <Header
+        userName={userName}
+      />
 
       <main>
 
@@ -43,7 +47,10 @@ const Home = () => {
 
       </main>
 
-      <SettingsMenu />
+      <SettingsMenu
+        userName={userName}
+        setUserName={setUserName}
+      />
     </div>
   );
 };

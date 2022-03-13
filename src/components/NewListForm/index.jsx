@@ -25,15 +25,18 @@ const NewListForm = ({ setShowForm }) => {
       setShowModal={setShowForm}
     >
 
-      <form className='new_list'>
+      <form 
+        className={theme === 'light' ? 'new_list light' : 'new__list dark'}
+      >
+
         <h2 className='new_list--title'>
           {listName === '' ? 'Nouvelle Liste' : listName}
         </h2>
 
 
-
         <label className="new_list--name">
           Choisissez un nom pour votre liste
+
           <input
             type="text"
             className="new_list--name--input"
@@ -42,6 +45,7 @@ const NewListForm = ({ setShowForm }) => {
               handleChangeListName(event.target.value);
             }}
           />
+
         </label>
 
         <span>

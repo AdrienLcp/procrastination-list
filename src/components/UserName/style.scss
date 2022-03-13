@@ -1,0 +1,24 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.user {
+  @include flexCenter;
+  flex-direction: column;
+
+  &--input {
+    margin-top: 0.5em;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    background: vars.$white !important;
+    border: 2px solid transparent;
+    transition: none !important;
+
+      &:hover {
+        border-color: vars.$black;
+      }
+
+    &.dark {
+      color: vars.$black;
+    }
+  }
+}

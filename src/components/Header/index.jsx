@@ -1,28 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
 import './style.scss';
 
-const Header = () => {
+const Header = ({ userName }) => {
 
   const { theme } = useContext(ThemeContext);
 
-  // const [userName, setUserName] = useState('');
-
   let title = 'Ma liste de procrastination';
-
-  useEffect(() => {
-    const previousUser = localStorage.getItem('user_name');
-
-    console.log('user précédent : ' + previousUser);
-  }, []);
 
   return (
     <header className={theme === 'light' ? 'header light' : 'header dark'}>
 
       <h1 className='header--title'>
-        {title}
+        {userName === '' ? title : 'La liste de procrastination de ' + userName}
       </h1>
 
     </header>

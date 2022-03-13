@@ -4,6 +4,7 @@
 .dark_mode {
   @include flexCenter;
   background: transparent !important;
+  margin-top: 10vh;
 
   &--input {
     position: relative;
@@ -50,5 +51,11 @@
     .dark_mode--span {
       color: vars.$white;
     }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .dark_mode {
+    margin-top: 3.5em;
   }
 }

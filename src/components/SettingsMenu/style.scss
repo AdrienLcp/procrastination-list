@@ -45,23 +45,30 @@
       color: inherit;
     }
 
+    &:active {
+      transform: scale(0.9);
+    }
+
     &.opened {
       &::after {
         opacity: 1;
         transform: translateX(70%);
+      }
+
+      &:active {
+        transform: none;
       }
     }
 
     &--img {
       height: 100%;
     }
-
-    &:active {
-      transform: scale(0.9);
-    }
   }
 
   &--container {
+    @include posFixed(0, auto, auto, 0);
+    @include flexCenter;
+    flex-direction: column;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -72,10 +79,19 @@
     &.opened {
       @include posFixed(0, auto, auto, 0);
       @include flexCenter;
+      flex-direction: column;
       height: 100vh;
       visibility: visible;
       opacity: 1;
       transform: translateY(0);
+    }
+
+    &--alert {
+      color: vars.$red;
+      font-size: 0.8em;
+      position: absolute;
+      text-align: center;
+      margin-top: 0.5em;
     }
   }
 }
@@ -102,31 +118,31 @@
     }
 
     &--button {
-      @include posAbsolute(auto, 0, 0, auto);
+      @include posAbsolute(auto, 0, 1em, auto);
       width: 80px;
       height: 80px;
-      transition: 1s;
+      transition: .3s;
   
       &:hover {
-        transform: rotate(360deg);
+        transform: rotate(90deg);
       }
 
       &:active {
-        transform: rotate(360deg) scale(0.9);
+        transform: rotate(90deg) scale(0.9);
       }
 
       &.opened {
         width: 50px;
         height: 50px;
-        transform: translate(-25em, -12em);
+        transform: translate(-21em, -14em);
         cursor: default;
 
         &:hover {
-          transform: translate(-25em, -12em);
+          transform: translate(-21em, -14em);
         }
 
         &:active {
-          transform: translate(-25em, -12em);
+          transform: translate(-21em, -14em);
         }
       }
 
@@ -136,15 +152,21 @@
     }
 
     &--container {
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      @include posFixed(auto, 1em, 0, auto);
+      border-top-left-radius: 10px;
       width: 20em;
       transform: translateY(100%);
 
       &.opened {
-        @include posFixed(auto, 3em, 0, auto);
+        @include posFixed(auto, 1em, 0, auto);
         height: auto;
-        padding: 6em 4em 3em;
+        padding: 5em 4em 3em;
+      }
+
+      &--alert {
+        margin-top: 2rem;
+        padding: 0 1em;
+        font-size: 0.9em;
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
@@ -9,10 +9,13 @@ import './style.scss';
 
 import settings_white from '../../media/icons/settings_white.svg';
 import settings_black from '../../media/icons/settings_black.svg';
+import UserName from '../UserName';
 
-const SettingsMenu = () => {
+const SettingsMenu = ({ userName, setUserName }) => {
 
   const { theme } = useContext(ThemeContext);
+
+  const [alertMessage, setAlertMessage] = useState('');
 
   const buttonRef = useRef(null);
   const settingsRef = useRef(null);
@@ -39,8 +42,17 @@ const SettingsMenu = () => {
           close={closeSettings}
         />
 
-        <DarkMode />
+        <span className='settings--container--alert'>
+          {alertMessage}
+        </span>
 
+        <UserName
+          userName={userName}
+          setUserName={setUserName}
+          setAlertMessage={setAlertMessage}
+        />
+
+        <DarkMode />
 
       </section>
 
