@@ -13,12 +13,18 @@
     border: 2px solid transparent;
     transition: none !important;
 
-      &:hover {
-        border-color: vars.$black;
+      &:focus {
+        border-color: vars.$main-color;
       }
 
     &.dark {
       color: vars.$black;
     }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .user--input:hover {
+    border-color: vars.$main-hover;
   }
 }

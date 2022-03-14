@@ -29,7 +29,7 @@
     }
 
     &.checked {
-      background: #3498db;
+      background: vars.$main-color;
 
       &::before {
         left: 20px;

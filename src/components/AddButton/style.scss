@@ -2,11 +2,10 @@
 @import '../../styles/mixins';
 
 .add__button {
+  @include posFixed(auto, 0, 1em, 0);
   @include flexCenter;
-  border: none;
-  background: transparent;
-  transition: .2s;
   flex-direction: column;
+  transition: .2s;
 
   &.no_list {
     @include posAbsolute(50%, auto, auto, 50%);
@@ -40,12 +39,13 @@
   }
 
   &:active {
-    transform: translate(-50%, -45%) scale(0.9);
+    transform: scale(0.9);
   }
 }
 
 @media screen and (min-width: 850px) {
   .add__button {
+    @include posAbsolute(3em, 5em, auto, auto);
 
     &.no_list {
       @include posCenter;

@@ -5,8 +5,7 @@ import Modal from '../Modal';
 
 import './style.scss';
 
-import save_white from '../../media/icons/save_white.svg';
-import save_black from '../../media/icons/save_black.svg';
+import save from '../../media/icons/save.svg';
 
 const NewListForm = ({ setShowForm }) => {
 
@@ -30,12 +29,7 @@ const NewListForm = ({ setShowForm }) => {
     if (previousLists) {
       console.log('il y a déjà une liste qui existe, faut sen occuper');
     } else {
-      localStorage.setItem('lists', [{
-          ID: 0,
-          name: listName,
-          content: 'faire quelque chose'
-        }
-      ]);
+      localStorage.setItem('lists', listName);
     };
   };
 
@@ -51,14 +45,13 @@ const NewListForm = ({ setShowForm }) => {
           {listName === '' ? 'Nouvelle Liste' : listName}
         </h2>
 
-
         <label className="new_list--name">
           Choisissez un nom pour votre liste
 
           <input
             type="text"
             className="new_list--name--input"
-            placeholder={listName}
+            placeholder={'Liste de choses à faire'}
             onChange={(event) => {
               handleChangeListName(event.target.value);
             }}
@@ -72,6 +65,7 @@ const NewListForm = ({ setShowForm }) => {
 
         <button
           type='submit'
+          className='new_list--submit'
           onClick={() => {
             handleSubmitNewList();
           }}
@@ -80,7 +74,7 @@ const NewListForm = ({ setShowForm }) => {
             <img
               className='new_list--submit--icon--img'
               alt='Sauvegarder la liste'
-              src={theme === 'light' ? save_black : save_white}
+              src={save}
             />
           </div>
           <span className={theme === 'light' ? 'new_list--submit--label light' : 'new_list--submit--label dark'}>

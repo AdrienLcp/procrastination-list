@@ -42,7 +42,8 @@ const Home = () => {
         />
 
         <section className='home--container'>
-          { lists === null ? '' : lists}
+
+          {lists}
         </section>
 
       </main>
