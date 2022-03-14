@@ -1,5 +1,27 @@
 @use '../../styles/vars';
+@import '../../styles/mixins';
 
 .new_list {
-  color: white;
+  @include flexCenter;
+  flex-direction: column;
+
+  &--title {
+    @include posAbsolute(1.5em, auto, auto, 1.5em);
+    font-weight: bold;
+  }
+  
+  &--name {
+    @include flexCenter;
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 2em;
+
+    &--input {
+      margin-top: 1em;
+      padding: 0.5em;
+      border-radius: 5px;
+      background: vars.$white;
+    }
+  }
 }

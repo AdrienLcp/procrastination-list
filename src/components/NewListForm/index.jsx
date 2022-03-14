@@ -5,28 +5,46 @@ import Modal from '../Modal';
 
 import './style.scss';
 
+import save_white from '../../media/icons/save_white.svg';
+import save_black from '../../media/icons/save_black.svg';
+
 const NewListForm = ({ setShowForm }) => {
 
   const { theme } = useContext(ThemeContext);
 
-  const [listName, setListName] = useState('');
+  const [listName, setListName] = useState('Nouvelle liste');
   const [alertMessage, setAlertMessage] = useState('');
 
   const handleChangeListName = (newName) => {
-    if (newName.length > 20) {
-      setAlertMessage('Le nom de votre liste ne doit pas dépasser 20 caractères')
+    if (newName.length > 30) {
+      setAlertMessage('Le nom de votre liste ne doit pas dépasser 30 caractères');
     } else {
+      setAlertMessage('');
       setListName(newName);
     };
   };
 
+  const handleSubmitNewList = () => {
+    const previousLists = localStorage.getItem('lists');
+
+    if (previousLists) {
+      console.log('il y a déjà une liste qui existe, faut sen occuper');
+    } else {
+      localStorage.setItem('lists', [{
+          ID: 0,
+          name: listName,
+          content: 'faire quelque chose'
+        }
+      ]);
+    };
+  };
+
   return (
-    <Modal 
+    <Modal
       setShowModal={setShowForm}
     >
-
       <form 
-        className={theme === 'light' ? 'new_list light' : 'new__list dark'}
+        className={theme === 'light' ? 'new_list light' : 'new_list dark'}
       >
 
         <h2 className='new_list--title'>
@@ -48,9 +66,28 @@ const NewListForm = ({ setShowForm }) => {
 
         </label>
 
-        <span>
+        <span className='new_list--alert'>
           {alertMessage}
         </span>
+
+        <button
+          type='submit'
+          onClick={() => {
+            handleSubmitNewList();
+          }}
+        >
+          <div className='new_list--submit--icon'>
+            <img
+              className='new_list--submit--icon--img'
+              alt='Sauvegarder la liste'
+              src={theme === 'light' ? save_black : save_white}
+            />
+          </div>
+          <span className={theme === 'light' ? 'new_list--submit--label light' : 'new_list--submit--label dark'}>
+            Sauvegarder
+          </span>
+        </button>
+
       </form>
       
     </Modal>

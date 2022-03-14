@@ -19,7 +19,7 @@ const UserName = ({ userName, setUserName, setAlertMessage }) => {
   const handleChangeUserName = (newName) => {
 
     if (newName.length > 20) {
-      setAlertMessage('Le pseudo ne peut contenir que 40 caractères au maximum')
+      setAlertMessage('Le pseudo ne peut contenir que 40 caractères au maximum');
     } else {
       setAlertMessage('');
       setUserName(newName);

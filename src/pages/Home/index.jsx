@@ -9,7 +9,6 @@ import Header from '../../components/Header';
 import './style.scss';
 
 const Home = () => {
-
   
   const { theme } = useContext(ThemeContext);
   
@@ -23,6 +22,7 @@ const Home = () => {
     if (previousLists !== null) {
       setLists(previousLists);
       setHasLists(true);
+      console.log(lists)
     } else {
       setHasLists(false);
     };

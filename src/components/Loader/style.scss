@@ -1,0 +1,20 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.loader {
+  z-index: 200;
+  @include posAbsolute(0, auto, auto, 0);
+  @include flexCenter;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+
+  &--icon {
+    height: 5vh;
+    width: 5vh;
+
+    &--img {
+      height: 100%;
+    }
+  }
+}
