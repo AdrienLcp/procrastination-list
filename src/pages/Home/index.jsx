@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
@@ -7,22 +7,22 @@ import SettingsMenu from '../../components/SettingsMenu';
 import Header from '../../components/Header';
 
 import './style.scss';
+import Lists from '../../components/Lists';
 
 const Home = () => {
   
   const { theme } = useContext(ThemeContext);
   
   const [hasLists, setHasLists] = useState(false);
-  const [lists, setLists] = useState(null);
   const [userName, setUserName] = useState('');
+  const [lists, setLists] = useState([]);
 
   useEffect(() => {
-    const previousLists = localStorage.getItem('lists');
 
-    if (previousLists !== null) {
-      setLists(previousLists);
+    const hasPreviousLists = JSON.parse(localStorage.getItem('lists'));
+
+    if (hasPreviousLists !== null) {
       setHasLists(true);
-      console.log(lists)
     } else {
       setHasLists(false);
     };
@@ -35,18 +35,16 @@ const Home = () => {
         userName={userName}
       />
 
-      <main>
+      <AddButton
+        hasLists={hasLists}
+        setLists={setLists}
+      />
 
-        <AddButton
-          hasLists={hasLists}
-        />
-
-        <section className='home--container'>
-
-          {lists}
-        </section>
-
-      </main>
+      <Lists
+        hasLists={hasLists}
+        lists={lists}
+        setLists={setLists}
+      />
 
       <SettingsMenu
         userName={userName}

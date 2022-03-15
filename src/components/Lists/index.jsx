@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './style.scss';
 
-const Lists = () => {
+const Lists = ({ hasLists, lists, setLists }) => {
+
+  useEffect(() => {
+    const previousLists = JSON.parse(localStorage.getItem('lists'));
+
+    setLists(previousLists);
+  }, []);
 
   return (
-    <div className='lists'>
+    <main className='lists'>
+      { hasLists === null ? 'Aucune liste à afficher' : 
       
-    </div>
+        lists.map((list, index) => {
+          return (
+            <li key={index}>
+
+              <p>
+                {list.name}
+              </p>
+
+            </li>
+
+          )
+        })
+      
+      
+      
+      }
+    </main>
   );
 };
 

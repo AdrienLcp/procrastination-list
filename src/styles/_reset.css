@@ -166,3 +166,7 @@ button {
 input {
   border: none;
 }
+
+li {
+  list-style-type: none;
+}

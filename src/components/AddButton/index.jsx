@@ -6,14 +6,13 @@ import NewListForm from '../../components/NewListForm';
 
 import './style.scss';
 
-const AddButton = ({ hasLists }) => {
+const AddButton = ({ hasLists, setLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
   const buttonRef = useRef(null);
 
   const [showForm, setShowForm] = useState(false);
-  
 
   useEffect(() => {
     if (!hasLists) {
@@ -43,6 +42,7 @@ const AddButton = ({ hasLists }) => {
       { showForm && (
         <NewListForm
           setShowForm={setShowForm}
+          setLists={setLists}
         />
       )}
     </>
