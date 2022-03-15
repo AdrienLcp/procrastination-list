@@ -26,7 +26,24 @@ const Home = () => {
     } else {
       setHasLists(false);
     };
+
+    const previousLists = JSON.parse(localStorage.getItem('lists'));
+    
+    setLists(previousLists);
   }, []);
+
+  const deleteList = (listID) => {
+
+    const previousLists = JSON.parse(localStorage.getItem('lists'));
+
+    console.log('avant ' + previousLists[listID]);
+    console.log('avant ' + previousLists);
+    
+    previousLists.splice(listID);
+
+    console.log('après ' + previousLists[listID]);
+    console.log('après ' + previousLists);
+  };
 
   return (
     <div className={theme === 'light' ? 'home light' : 'home dark'}>
@@ -38,12 +55,13 @@ const Home = () => {
       <AddButton
         hasLists={hasLists}
         setLists={setLists}
+        setHasLists={setHasLists}
       />
 
       <Lists
         hasLists={hasLists}
         lists={lists}
-        setLists={setLists}
+        deleteList={deleteList}
       />
 
       <SettingsMenu

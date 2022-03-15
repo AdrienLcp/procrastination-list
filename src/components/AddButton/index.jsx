@@ -6,7 +6,7 @@ import NewListForm from '../../components/NewListForm';
 
 import './style.scss';
 
-const AddButton = ({ hasLists, setLists }) => {
+const AddButton = ({ hasLists, setLists, setHasLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
@@ -43,6 +43,7 @@ const AddButton = ({ hasLists, setLists }) => {
         <NewListForm
           setShowForm={setShowForm}
           setLists={setLists}
+          setHasLists={setHasLists}
         />
       )}
     </>

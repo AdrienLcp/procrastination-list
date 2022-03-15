@@ -7,11 +7,11 @@ import './style.scss';
 
 import save from '../../media/icons/save.svg';
 
-const NewListForm = ({ setShowForm, setLists }) => {
+const NewListForm = ({ setShowForm, setLists, setHasLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
-  const sectionRef = useRef(null);
+  const newListFormRef = useRef(null);
 
   const [listName, setListName] = useState('Nouvelle liste');
   const [alertMessage, setAlertMessage] = useState('');
@@ -32,7 +32,7 @@ const NewListForm = ({ setShowForm, setLists }) => {
     
     const newList = {
       name: listName,
-      tasks: ['truc à faire', 'autre truc à faire']
+      tasks: []
     };
     
     if (previousLists) {
@@ -45,6 +45,7 @@ const NewListForm = ({ setShowForm, setLists }) => {
       localStorage.setItem('lists', JSON.stringify([newList]));
 
       const newListOfLists = [newList];
+      setHasLists(true);
       setLists(newListOfLists);
     };
 
@@ -52,7 +53,7 @@ const NewListForm = ({ setShowForm, setLists }) => {
   };
 
   const closeModal = () => {
-    sectionRef.current.style.opacity = '0';
+    newListFormRef.current.style.opacity = '0';
 
     setTimeout(() => {
       setShowForm(false);
@@ -60,7 +61,7 @@ const NewListForm = ({ setShowForm, setLists }) => {
   };
 
   return (
-    <section ref={sectionRef}>
+    <section ref={newListFormRef}>
 
       <Modal
         setShowModal={setShowForm}
@@ -92,7 +93,6 @@ const NewListForm = ({ setShowForm, setLists }) => {
           </span>
 
           <button
-            type='submit'
             className='new_list--submit'
             onClick={(event) => {
               handleSubmitNewList(event);

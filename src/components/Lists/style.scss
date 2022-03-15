@@ -1,2 +1,25 @@
 @use '../../styles/vars';
 @import '../../styles/mixins';
+
+.lists {
+  @include flexCenter;
+  margin-top: 3em;
+
+  &--container {
+    @include flexCenter;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .lists {
+    margin-top: 10vh;
+
+    &--container {
+      flex-direction: row;
+    }
+  }
+}

@@ -15,9 +15,10 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 50;
+  transition: .3s;
 
   &--container {
-    @include animApparition(1s);
+    @include animApparition(.5s);
     @include flexCenter;
     flex-direction: column;
     max-width: 90vw;

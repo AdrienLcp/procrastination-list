@@ -13,6 +13,8 @@ const UserName = ({ userName, setUserName, setAlertMessage }) => {
 
     if (previousUser) {
       setUserName(previousUser);
+
+      document.title = 'La liste de ' + previousUser;
     };
   }, []);
 

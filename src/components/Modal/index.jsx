@@ -12,7 +12,6 @@ const Modal = (props) => {
   const modalRef= useRef(null);
 
   const closeModal = () => {
-    modalRef.current.style.transition = '.3s';
     modalRef.current.style.opacity = '0';
 
     setTimeout(() => {
