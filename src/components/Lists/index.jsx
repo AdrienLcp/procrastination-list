@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+import List from '../List';
 
 import './style.scss';
 
@@ -12,24 +14,25 @@ const Lists = ({ hasLists, lists, setLists }) => {
 
   return (
     <main className='lists'>
-      { hasLists === null ? 'Aucune liste à afficher' : 
-      
-        lists.map((list, index) => {
-          return (
-            <li key={index}>
+      <ul className='lists--container'>
 
-              <p>
-                {list.name}
-              </p>
+        { hasLists === null ? 'Aucune liste à afficher' : 
+        
+          lists.map((list, index) => {
+            return (
+              <li key={index}>
+                
+                <List
+                  name={list.name}
+                  tasks={list.tasks}
+                />
 
-            </li>
+              </li>
+            );
+          })
+        }
 
-          )
-        })
-      
-      
-      
-      }
+      </ul>
     </main>
   );
 };
