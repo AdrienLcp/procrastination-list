@@ -10,8 +10,8 @@ const Lists = ({ hasLists, lists, deleteList }) => {
     <main className='lists'>
       <ul className='lists--container'>
 
-        { !hasLists ? 'Aucune liste à afficher' : 
-        
+        { !hasLists ? 'Aucune liste à afficher' :
+
           lists.map((list, index) => {
             return (
               <li key={index}>
@@ -27,7 +27,6 @@ const Lists = ({ hasLists, lists, deleteList }) => {
             );
           })
         }
-
       </ul>
     </main>
   );

@@ -18,7 +18,6 @@ const Home = () => {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-
     const hasPreviousLists = JSON.parse(localStorage.getItem('lists'));
 
     if (hasPreviousLists !== null) {
@@ -33,16 +32,12 @@ const Home = () => {
   }, []);
 
   const deleteList = (listID) => {
-
     const previousLists = JSON.parse(localStorage.getItem('lists'));
 
-    console.log('avant ' + previousLists[listID]);
-    console.log('avant ' + previousLists);
-    
-    previousLists.splice(listID);
+    previousLists.splice(listID, 1);
 
-    console.log('après ' + previousLists[listID]);
-    console.log('après ' + previousLists);
+    setLists(previousLists);
+    localStorage.setItem('lists', JSON.stringify(previousLists));
   };
 
   return (

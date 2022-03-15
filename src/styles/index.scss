@@ -13,13 +13,13 @@ body {
 }
 
 .light {
-  transition: 1s;
+  transition: .5s;
   background: vars.$white;
   color: vars.$black;
 }
 
 .dark {
-  transition: 1s;
+  transition: .5s;
   background: vars.$black;
   color: vars.$white;
 }

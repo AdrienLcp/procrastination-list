@@ -72,7 +72,7 @@ const List = ({ ID, name, tasks, deleteList }) => {
         }
       </ul>
 
-      <button>
+      <button className='list--add_list'>
         Ajouter une tâche
       </button>
 
