@@ -18,26 +18,33 @@ const Home = () => {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-    const hasPreviousLists = JSON.parse(localStorage.getItem('lists'));
+
+    const hasPreviousLists = localStorage.getItem('lists');
 
     if (hasPreviousLists !== null) {
       setHasLists(true);
+      const previousLists = JSON.parse(localStorage.getItem('lists'));
+      setLists(previousLists);
     } else {
       setHasLists(false);
     };
-
-    const previousLists = JSON.parse(localStorage.getItem('lists'));
-    
-    setLists(previousLists);
   }, []);
 
   const deleteList = (listID) => {
     const previousLists = JSON.parse(localStorage.getItem('lists'));
 
-    previousLists.splice(listID, 1);
+    if (previousLists.length === 1) {
+      localStorage.removeItem('lists');
+      setLists([]);
+      setHasLists(false);
+    } else {
 
-    setLists(previousLists);
-    localStorage.setItem('lists', JSON.stringify(previousLists));
+      previousLists.splice(listID, 1);
+
+      setLists(previousLists);
+      localStorage.setItem('lists', JSON.stringify(previousLists));
+
+    };
   };
 
   return (

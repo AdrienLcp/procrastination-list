@@ -1,30 +1,20 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
-
-import Task from '../Task';
+import Tasks from '../Tasks';
+import ConfirmDelete from '../ConfirmDelete';
 
 import './style.scss';
 
 import delete_black from '../../media/icons/delete_black.svg';
 import delete_white from '../../media/icons/delete_white.svg';
-import ConfirmDelete from '../ConfirmDelete';
 
 const List = ({ ID, name, tasks, deleteList }) => {
 
   const { theme } = useContext(ThemeContext);
-
-  const [hasTasks, setHasTasks] = useState(false);
+  
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
-
-  useEffect(() => {
-    if (tasks === []) {
-      console.log(tasks);
-    } else {
-      setHasTasks(true);
-    };
-  }, [tasks]);
 
   useEffect(() => {
     if (confirmDelete === true) {
@@ -56,21 +46,9 @@ const List = ({ ID, name, tasks, deleteList }) => {
         </span>
       </button>
 
-      <ul className='list--tasks'>
-
-        { !hasTasks ? 'Créer une tâche' : 
-
-          tasks.map((task, index) => {
-            return (
-              <li key={index}>
-                <Task
-                  content={task}
-                />
-              </li>
-            );
-          })
-        }
-      </ul>
+      <Tasks
+        tasks={tasks}
+      />
 
       <button className='list--add_list'>
         Ajouter une tâche
@@ -87,5 +65,6 @@ const List = ({ ID, name, tasks, deleteList }) => {
     </section>
   );
 };
+
 
 export default List;
