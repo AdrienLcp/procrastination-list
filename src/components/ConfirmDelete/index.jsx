@@ -4,7 +4,7 @@ import Modal from '../Modal';
 
 import './style.scss';
 
-const ConfirmDelete = ({ listName, setConfirmDelete, setShowConfirmDelete }) => {
+const ConfirmDelete = ({ listID, listName, deleteList, setShowConfirmDelete }) => {
 
   const confirmDeleteRef = useRef(null);
 
@@ -34,7 +34,7 @@ const ConfirmDelete = ({ listName, setConfirmDelete, setShowConfirmDelete }) => 
         <button
           className='confirm_delete--button-confirm'
           onClick={() => {
-            setConfirmDelete(true);
+            deleteList(listID);
             closeModal();
           }}
         >

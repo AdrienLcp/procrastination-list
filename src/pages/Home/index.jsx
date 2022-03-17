@@ -2,12 +2,12 @@ import React, { useContext, useState, useEffect } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
-import AddButton from '../../components/AddButton';
+import AddListButton from '../../components/AddListButton';
 import SettingsMenu from '../../components/SettingsMenu';
 import Header from '../../components/Header';
+import Lists from '../../components/Lists';
 
 import './style.scss';
-import Lists from '../../components/Lists';
 
 const Home = () => {
   
@@ -30,23 +30,6 @@ const Home = () => {
     };
   }, []);
 
-  const deleteList = (listID) => {
-    const previousLists = JSON.parse(localStorage.getItem('lists'));
-
-    if (previousLists.length === 1) {
-      localStorage.removeItem('lists');
-      setLists([]);
-      setHasLists(false);
-    } else {
-
-      previousLists.splice(listID, 1);
-
-      setLists(previousLists);
-      localStorage.setItem('lists', JSON.stringify(previousLists));
-
-    };
-  };
-
   return (
     <div className={theme === 'light' ? 'home light' : 'home dark'}>
       
@@ -54,7 +37,7 @@ const Home = () => {
         userName={userName}
       />
 
-      <AddButton
+      <AddListButton
         hasLists={hasLists}
         setLists={setLists}
         setHasLists={setHasLists}
@@ -62,8 +45,9 @@ const Home = () => {
 
       <Lists
         hasLists={hasLists}
+        setHasLists={setHasLists}
         lists={lists}
-        deleteList={deleteList}
+        setLists={setLists}
       />
 
       <SettingsMenu

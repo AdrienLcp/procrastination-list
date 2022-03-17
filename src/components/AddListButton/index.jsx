@@ -2,11 +2,11 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 
-import NewListForm from '../../components/NewListForm';
+import NewListForm from '../NewListForm';
 
 import './style.scss';
 
-const AddButton = ({ hasLists, setLists, setHasLists }) => {
+const AddListButton = ({ hasLists, setLists, setHasLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
@@ -26,15 +26,15 @@ const AddButton = ({ hasLists, setLists, setHasLists }) => {
     <>
       <button
         ref={buttonRef}
-        className='add__button'
+        className='add__list'
         onClick={() => {
           setShowForm(true);
         }}
       >
-        <span className={theme === 'light' ? 'light add__button--icon' : 'dark add__button--icon'}>
+        <span className={theme === 'light' ? 'light add__list--icon' : 'dark add__list--icon'}>
           +
         </span>
-        <label className={theme === 'light' ? 'light add__button--label' : 'dark add__button--label'}>
+        <label className={theme === 'light' ? 'light add__list--label' : 'dark add__list--label'}>
           Créer une liste
         </label>
       </button>
@@ -50,4 +50,4 @@ const AddButton = ({ hasLists, setLists, setHasLists }) => {
   );
 };
 
-export default AddButton;
+export default AddListButton;

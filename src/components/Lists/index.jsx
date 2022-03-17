@@ -1,10 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import List from '../List';
 
 import './style.scss';
 
-const Lists = ({ hasLists, lists, deleteList }) => {
+const Lists = ({ hasLists, setHasLists, lists, setLists }) => {
+
+  const deleteList = (listID) => {
+    const previousLists = JSON.parse(localStorage.getItem('lists'));
+
+    if (previousLists.length === 1) {
+      localStorage.removeItem('lists');
+      setLists([]);
+      setHasLists(false);
+    } else {
+
+      previousLists.splice(listID, 1);
+
+      setLists(previousLists);
+      localStorage.setItem('lists', JSON.stringify(previousLists));
+    };
+  };
 
   return (
     <main className='lists'>

@@ -5,11 +5,9 @@ import './style.scss';
 const Task = ({ content }) => {
 
   return (
-    <section className='task'>
-      <p>
-        {content}
-      </p>
-    </section>
+    <p className='task'>
+      {content}
+    </p>
   );
 };
 

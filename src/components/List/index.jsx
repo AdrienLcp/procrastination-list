@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 import Tasks from '../Tasks';
@@ -8,21 +8,13 @@ import './style.scss';
 
 import delete_black from '../../media/icons/delete_black.svg';
 import delete_white from '../../media/icons/delete_white.svg';
+import AddTaskButton from '../AddTaskButton';
 
 const List = ({ ID, name, tasks, deleteList }) => {
 
   const { theme } = useContext(ThemeContext);
-  
-  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
-  const [confirmDelete, setConfirmDelete] = useState(false);
 
-  useEffect(() => {
-    if (confirmDelete === true) {
-      deleteList(ID);
-    } else {
-      return;
-    };
-  }, [confirmDelete]);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   return (
     <section className={theme === 'light' ? 'list light' : 'list dark'}>
@@ -50,15 +42,15 @@ const List = ({ ID, name, tasks, deleteList }) => {
         tasks={tasks}
       />
 
-      <button className='list--add_list'>
-        Ajouter une tâche
-      </button>
-
+      <AddTaskButton
+        listID={ID}
+      />
 
       { showConfirmDelete && (
         <ConfirmDelete
+          listID={ID}
           listName={name}
-          setConfirmDelete={setConfirmDelete}
+          deleteList={deleteList}
           setShowConfirmDelete={setShowConfirmDelete}
         />
       )}

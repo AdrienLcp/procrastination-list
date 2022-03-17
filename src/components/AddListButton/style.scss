@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 @import '../../styles/mixins';
 
-.add__button {
+.add__list {
   @include posFixed(auto, 0, 1em, 0);
   @include flexCenter;
   flex-direction: column;
@@ -44,7 +44,7 @@
 }
 
 @media screen and (min-width: 850px) {
-  .add__button {
+  .add__list {
     @include posAbsolute(3em, 5em, auto, auto);
 
     &.no_list {
@@ -66,11 +66,11 @@
     }
 
     &:hover {
-      .add__button--icon {
+      .add__list--icon {
         background: vars.$main-hover !important;
       }
 
-      .add__button--label {
+      .add__list--label {
         opacity: 1;
         transform: translateY(3em);
       }
