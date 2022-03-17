@@ -5,10 +5,8 @@ import Tasks from '../Tasks';
 import ConfirmDelete from '../ConfirmDelete';
 
 import './style.scss';
-
-import delete_black from '../../media/icons/delete_black.svg';
-import delete_white from '../../media/icons/delete_white.svg';
 import AddTaskButton from '../AddTaskButton';
+import DeleteListButton from '../DeleteListButton';
 
 const List = ({ ID, name, tasks, deleteList }) => {
 
@@ -22,21 +20,9 @@ const List = ({ ID, name, tasks, deleteList }) => {
         {name}
       </h2>
 
-      <button
-        className='list--delete'
-        onClick={() => {
-          setShowConfirmDelete(true);
-        }}
-      >
-        <img
-          className='list--delete--icon'
-          alt='Supprimer cette liste'
-          src={theme === 'light' ? delete_black : delete_white}
-        />
-        <span className='list--delete--label'>
-          Supprimer
-        </span>
-      </button>
+      <DeleteListButton
+        setShowConfirmDelete={setShowConfirmDelete}
+      />
 
       <Tasks
         tasks={tasks}

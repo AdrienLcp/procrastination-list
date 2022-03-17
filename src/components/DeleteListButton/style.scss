@@ -1,0 +1,40 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.delete__list {
+  @include posAbsolute(5px, 5px, auto, auto);
+  @include flexCenter;
+  width: 25px;
+  height: 25px;
+
+  &--icon {
+    height: 100%;
+  }
+
+  &--label {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .delete__list {
+    @include posAbsolute(0, 0, auto, auto);
+    transform: translate(50%, -50%);
+    width: 30px;
+    height: 30px;
+
+    &--label {
+      transition: .3s;
+    }
+
+    &:hover {
+      background: vars.$red;
+
+      .delete__list--label {
+        opacity: 1;
+        transform: translateY(-2em);
+      }
+    }
+  }
+}

@@ -5,9 +5,6 @@
   position: relative;
   border: 2px solid transparent;
   border-radius: 5px;
-  padding: 2em;
-  margin: 2em;
-  width: 20em;
 
   &.light {
     border-color: vars.$black;
@@ -28,33 +25,12 @@
   &--title {
     font-weight: bold;
   }
-
-  &--delete {
-    @include posAbsolute(0, 0, auto, auto);
-    @include flexCenter;
-    transform: translate(50%, -50%);
-
-    &--label {
-      position: absolute;
-      opacity: 0;
-    }
-  }
 }
 
 @media screen and (min-width: 850px) {
   .list {
-    &--delete {
-
-      &--label {
-        transition: .3s;
-      }
-
-      &:hover {
-        .list--delete--label {
-          opacity: 1;
-          transform: translateY(-2em);
-        }
-      }
-    }
+    width: 20em;
+    padding: 2em;
+    margin: 2em;
   }
 }
