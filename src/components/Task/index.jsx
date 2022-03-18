@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.scss';
 
-const Task = ({ content }) => {
+const Task = ({ taskID, content }) => {
 
   return (
     <p className='task'>

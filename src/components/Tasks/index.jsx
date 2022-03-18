@@ -10,7 +10,7 @@ const Tasks = ({ tasks }) => {
 
   useEffect(() => {
     if (tasks === []) {
-      console.log(tasks);
+      setHasTasks(false);
     } else {
       setHasTasks(true);
     };
@@ -25,6 +25,7 @@ const Tasks = ({ tasks }) => {
           return (
             <li key={index}>
               <Task
+                ID={index}
                 content={task}
               />
             </li>

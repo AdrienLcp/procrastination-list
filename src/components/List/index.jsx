@@ -8,7 +8,7 @@ import './style.scss';
 import AddTaskButton from '../AddTaskButton';
 import DeleteListButton from '../DeleteListButton';
 
-const List = ({ ID, name, tasks, deleteList }) => {
+const List = ({ ID, name, tasks, deleteList, setLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
@@ -30,6 +30,7 @@ const List = ({ ID, name, tasks, deleteList }) => {
 
       <AddTaskButton
         listID={ID}
+        setLists={setLists}
       />
 
       { showConfirmDelete && (

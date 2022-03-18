@@ -37,6 +37,7 @@ const Lists = ({ hasLists, setHasLists, lists, setLists }) => {
                   name={list.name}
                   tasks={list.tasks}
                   deleteList={deleteList}
+                  setLists={setLists}
                 />
 
               </li>

@@ -4,7 +4,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 
 import './style.scss';
 
-const AddTaskButton = ({ listID }) => {
+const AddTaskButton = ({ listID, setLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
@@ -26,24 +26,16 @@ const AddTaskButton = ({ listID }) => {
       return;
     } else {
 
-      const previousLists = JSON.parse(localStorage.getItem('lists'));
+      const lists = JSON.parse(localStorage.getItem('lists'));
 
       localStorage.removeItem('lists');
-      
-      const newLists = previousLists[listID].tasks.push(taskName);
 
-      localStorage.setItem('lists', JSON.stringify(newLists));
+      lists[listID].tasks.push(taskName);
 
-
-      // localStorage.setItem('lists', JSON.stringify(JSON.parse(localStorage.getItem('lists'))[listID].tasks.push(taskName)));
-
-      // localStorage.setItem('lists', JSON.stringify(newList));
-
-      // console.log(JSON.parse(localStorage.getItem('lists')));
-
-      // setLists(newLists);
+      localStorage.setItem('lists', JSON.stringify(lists));
 
       setTaskName('');
+      setLists(lists);
     };
   };
 
