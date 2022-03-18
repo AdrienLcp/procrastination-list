@@ -5,21 +5,20 @@
   position: relative;
   border: 2px solid transparent;
   border-radius: 5px;
+  padding: 1em;
+  min-height: 200px;
+  width: 80vw;
 
   &.light {
     border-color: vars.$black;
-
-    .list--delete--label {
-      color: vars.$black;
-    }
+    color: vars.$black;
+    background: vars.$main-color;
   }
 
   &.dark {
     border-color: vars.$white;
-
-    .list--delete--label {
-      color: vars.$white;
-    }
+    color: vars.$white;
+    background: vars.$dark-grey;
   }
 
   &--title {

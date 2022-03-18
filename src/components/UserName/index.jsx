@@ -1,12 +1,8 @@
-import React, { useEffect, useContext } from 'react';
-
-import { ThemeContext } from '../../context/ThemeContext';
+import React, { useEffect } from 'react';
 
 import './style.scss';
 
 const UserName = ({ userName, setUserName, setAlertMessage }) => {
-
-  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const previousUser = localStorage.getItem('user_name');
@@ -36,7 +32,7 @@ const UserName = ({ userName, setUserName, setAlertMessage }) => {
 
       <input
         type="text"
-        className={theme === 'light' ? 'user--input light' : 'user--input dark'}
+        className='user--input'
         placeholder={userName}
         onChange={(event) => {
           handleChangeUserName(event.target.value);

@@ -3,7 +3,6 @@
 
 .dark_mode {
   @include flexCenter;
-  background: transparent !important;
   margin-top: 10vh;
 
   &--input {

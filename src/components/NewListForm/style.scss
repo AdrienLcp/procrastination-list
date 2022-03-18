@@ -5,6 +5,18 @@
   @include flexCenter;
   flex-direction: column;
 
+  &.light {
+    .new_list--name--input {
+      border-color: vars.$black;
+    }
+  }
+
+  &.dark {
+    .new_list--name--input {
+      border-color: vars.$white;
+    }
+  }
+
   &--title {
     @include posAbsolute(1.5em, auto, auto, 1.5em);
     font-weight: bold;
@@ -21,10 +33,10 @@
       margin-top: 1em;
       padding: 0.75em 1em;
       border-radius: 5px;
-      background: vars.$light-grey;
+      border: 2px solid transparent;
 
       &:focus {
-        border-color: vars.$main-color;
+        border-color: vars.$main-color !important;
       }
     }
   }
@@ -67,11 +79,10 @@
 
     &--name--input {
       margin-top: 0.5em;
-      border: 2px solid transparent;
       width: 120%;
 
       &:hover {
-        border-color: vars.$main-hover;
+        border-color: vars.$main-hover !important;
       }
     }
 

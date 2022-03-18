@@ -2,4 +2,12 @@
 
 .home {
   height: 100vh;
+
+  &.light {
+    background: vars.$white;
+  }
+
+  &.dark {
+    background: vars.$black;
+  }
 }

@@ -1,5 +1,15 @@
+@use '../../styles/vars';
+
 .header {
   padding: 3em;
+
+  &.light {
+    color: vars.$black;
+  }
+
+  &.dark {
+    color: vars.$white;
+  }
 
   &--title {
     font-weight: bold;

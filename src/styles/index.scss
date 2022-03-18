@@ -14,29 +14,26 @@ body {
 
 .light {
   transition: .5s;
-  background: vars.$white;
-  color: vars.$black;
 }
 
 .dark {
   transition: .5s;
-  background: vars.$black;
-  color: vars.$white;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background: vars.$white;
-    color: vars.$black;
-  }
-}
+// Mettre ça en JS
+// @media (prefers-color-scheme: light) {
+//   body {
+//     background: vars.$white;
+//     color: vars.$black;
+//   }
+// }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: vars.$black;
-    color: vars.$white;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   body {
+//     background: vars.$black;
+//     color: vars.$white;
+//   }
+// }
 
 @keyframes apparition {
   100% {

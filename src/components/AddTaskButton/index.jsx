@@ -13,19 +13,26 @@ const AddTaskButton = ({ listID }) => {
 
   const handleChangeTaskName = (newTaskName) => {
     if (newTaskName.length > 50) {
-      setAlertMessage('Le nom de votre tâche ne doit pas dépasser 50 caractères');
+      setAlertMessage('Votre tâche ne doit pas dépasser 50 caractères');
     } else {
       setTaskName(newTaskName);
     };
   };
 
-  const handleSubmitNewTask = () => {
+  const handleSubmitNewTask = (event) => {
+    event.preventDefault();
+
     if (taskName === '') {
       return;
     } else {
-      // console.log(JSON.parse(localStorage.getItem('lists')));
 
-      // const previousList = JSON.parse(localStorage.getItem('lists'));
+      const previousLists = JSON.parse(localStorage.getItem('lists'));
+
+      localStorage.removeItem('lists');
+      
+      const newLists = previousLists[listID].tasks.push(taskName);
+
+      localStorage.setItem('lists', JSON.stringify(newLists));
 
 
       // localStorage.setItem('lists', JSON.stringify(JSON.parse(localStorage.getItem('lists'))[listID].tasks.push(taskName)));
@@ -33,6 +40,8 @@ const AddTaskButton = ({ listID }) => {
       // localStorage.setItem('lists', JSON.stringify(newList));
 
       // console.log(JSON.parse(localStorage.getItem('lists')));
+
+      // setLists(newLists);
 
       setTaskName('');
     };
@@ -59,8 +68,7 @@ const AddTaskButton = ({ listID }) => {
         <button
           className='add__task--submit'
           onClick={(event) => {
-            event.preventDefault();
-            handleSubmitNewTask();
+            handleSubmitNewTask(event);
           }}
         >
           Save

@@ -31,7 +31,7 @@ const Modal = (props) => {
         }}
       ></div>
       
-      <div className={theme === 'light' ? 'light modal--container' : 'dark modal--container'}>
+      <div className={theme === 'light' ? 'modal--container light' : 'modal--container dark'}>
 
         <CloseButton
           close={closeModal}

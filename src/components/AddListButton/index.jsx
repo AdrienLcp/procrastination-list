@@ -26,15 +26,15 @@ const AddListButton = ({ hasLists, setLists, setHasLists }) => {
     <>
       <button
         ref={buttonRef}
-        className='add__list'
+        className={theme === 'light' ? 'add__list light' : 'add__list dark'}
         onClick={() => {
           setShowForm(true);
         }}
       >
-        <span className={theme === 'light' ? 'light add__list--icon' : 'dark add__list--icon'}>
+        <span className='add__list--icon'>
           +
         </span>
-        <label className={theme === 'light' ? 'light add__list--label' : 'dark add__list--label'}>
+        <label className='add__list--label'>
           Créer une liste
         </label>
       </button>

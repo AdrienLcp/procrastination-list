@@ -5,11 +5,32 @@
   @include posFixed(auto, 0, 1em, 0);
   @include flexCenter;
   flex-direction: column;
-  transition: .2s;
 
   &.no_list {
     @include posAbsolute(50%, auto, auto, 50%);
     transform: translate(-50%, -50%);
+  }
+
+  &.light {
+    .add__list--icon {
+      border: 2px solid vars.$black;
+      color: vars.$black;
+    }
+
+    .add__list--label {
+      color: vars.$black;
+    }
+  }
+
+  &.dark {
+    .add__list--icon {
+      border: 2px solid vars.$white;
+      color: vars.$white;
+    }
+
+    .add__list--label {
+      color: vars.$white;
+    }
   }
 
   &--icon {
@@ -19,16 +40,7 @@
     height: 50px;
     border-radius: 50%;
     font-size: 2em;
-
-    &.light {
-      border: 2px solid vars.$black;
-      background: transparent !important;
-    }
-
-    &.dark {
-      border: 2px solid vars.$white;
-      background: transparent !important;
-    }
+    background: vars.$main-color;
   }
   
   &--label {
@@ -67,7 +79,7 @@
 
     &:hover {
       .add__list--icon {
-        background: vars.$main-hover !important;
+        background: vars.$main-hover;
       }
 
       .add__list--label {

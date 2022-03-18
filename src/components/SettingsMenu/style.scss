@@ -13,6 +13,10 @@
       background: vars.$light-grey;
       color: vars.$black;
     }
+
+    .settings--button::after {
+      color: vars.$black;
+    }
   }
 
   &.dark {
@@ -42,7 +46,7 @@
       opacity: 0;
       transform: translateX(35%);
       transition: .3s;
-      color: inherit;
+      font-weight: bold;
     }
 
     &:active {
@@ -103,6 +107,7 @@
 
     &.light {
       .settings--container {
+        background: vars.$main-color;
         border-top: 2px solid vars.$black;
         border-right: 2px solid vars.$black;
         border-left: 2px solid vars.$black;

@@ -4,12 +4,12 @@ import { ThemeContext } from '../../context/ThemeContext';
 
 import DarkMode from '../DarkMode';
 import CloseButton from '../CloseButton';
+import UserName from '../UserName';
 
 import './style.scss';
 
 import settings_white from '../../media/icons/settings_white.svg';
 import settings_black from '../../media/icons/settings_black.svg';
-import UserName from '../UserName';
 
 const SettingsMenu = ({ userName, setUserName }) => {
 

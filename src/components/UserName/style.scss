@@ -9,16 +9,13 @@
     margin-top: 0.5em;
     border-radius: 5px;
     padding: 0.5em 1em;
-    background: vars.$white !important;
-    border: 2px solid transparent;
+    background: vars.$white;
+    color: vars.$black;
+    border: 2px solid vars.$black;
     transition: none !important;
 
-      &:focus {
-        border-color: vars.$main-color;
-      }
-
-    &.dark {
-      color: vars.$black;
+    &:focus {
+      border-color: vars.$dark-grey;
     }
   }
 }

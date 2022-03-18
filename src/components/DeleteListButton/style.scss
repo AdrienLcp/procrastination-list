@@ -6,6 +6,15 @@
   @include flexCenter;
   width: 25px;
   height: 25px;
+  transition: transform .2s !important;
+
+  &.light {
+    color: vars.$black;
+  }
+
+  &.dark {
+    color: vars.$white;
+  }
 
   &--icon {
     height: 100%;
@@ -15,26 +24,47 @@
     position: absolute;
     opacity: 0;
   }
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 @media screen and (min-width: 850px) {
   .delete__list {
     @include posAbsolute(0, 0, auto, auto);
     transform: translate(50%, -50%);
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    padding: 0.5em;
+    border-radius: 50%;
+    border: 2px solid transparent;
+
+    &.light {
+      border-color: vars.$black;
+      background: vars.$white;
+    }
+
+    &.dark {
+      border-color: vars.$white;
+      background: vars.$dark-grey;
+    }
 
     &--label {
       transition: .3s;
     }
 
     &:hover {
-      background: vars.$red;
+      background: vars.$red-hover;
 
       .delete__list--label {
         opacity: 1;
-        transform: translateY(-2em);
+        transform: translateY(-2.5em);
       }
+    }
+
+    &:active {
+      transform: translate(50%, -50%) scale(0.9);
     }
   }
 }

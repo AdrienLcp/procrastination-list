@@ -7,7 +7,7 @@
   @include flexCenter;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(vars.$black, 0.9);
 
   &--icon {
     height: 5vh;
