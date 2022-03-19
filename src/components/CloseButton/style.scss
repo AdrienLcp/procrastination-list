@@ -52,7 +52,10 @@
       color: vars.$black;
 
       .close--label {
-        text-shadow: 0 0 20px vars.$white;
+        background: vars.$white;
+        padding: 0.2em 0.5em;
+        margin-bottom: 0.5em;
+        border-radius: 5px;
       }
     }
 

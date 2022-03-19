@@ -6,8 +6,9 @@
   border: 2px solid transparent;
   border-radius: 5px;
   padding: 1em;
+  margin-bottom: 1em;
   min-height: 200px;
-  width: 80vw;
+  width: 70vw;
 
   &.light {
     border-color: vars.$black;

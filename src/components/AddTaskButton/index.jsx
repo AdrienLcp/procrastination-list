@@ -8,15 +8,12 @@ const AddTaskButton = ({ listID, setLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
+  const addTaskRef = useRef(null);
+
   const [taskName, setTaskName] = useState('');
-  const [alertMessage, setAlertMessage] = useState('');
 
   const handleChangeTaskName = (newTaskName) => {
-    if (newTaskName.length > 50) {
-      setAlertMessage('Votre tâche ne doit pas dépasser 50 caractères');
-    } else {
-      setTaskName(newTaskName);
-    };
+    setTaskName(newTaskName);
   };
 
   const handleSubmitNewTask = (event) => {
@@ -25,30 +22,48 @@ const AddTaskButton = ({ listID, setLists }) => {
     if (taskName === '') {
       return;
     } else {
-
+      
       const lists = JSON.parse(localStorage.getItem('lists'));
-
+      
       localStorage.removeItem('lists');
-
+      
       lists[listID].tasks.push(taskName);
-
+      
       localStorage.setItem('lists', JSON.stringify(lists));
-
+      
       setTaskName('');
       setLists(lists);
+      
+      addTaskRef.current.classList.remove('opened');
     };
   };
 
+  const showInput = () => {
+    addTaskRef.current.classList.add('opened');
+  };
+
   return (
-    <>
-      <form className={theme === 'light' ? 'add__task light' : 'add__task dark'}>
+    <section
+      ref={addTaskRef}
+      className={theme === 'light' ? 'add__task light' : 'add__task dark'}
+    >
 
-        +
-
-        <span className='add__task--label'>
-          Ajouter une tâcher
+      <button
+        className='add__task--button'
+        onClick={() => {
+          showInput();
+        }}
+      >
+        <span className='add__task--button--icon'>
+          +
         </span>
 
+        <span className='add__task--button--label'>
+          Ajouter une tâche
+        </span>
+      </button>
+
+      <form className='add__task--form'>
         <input
           type='text'
           className='add__task--input'
@@ -57,20 +72,16 @@ const AddTaskButton = ({ listID, setLists }) => {
             handleChangeTaskName(event.target.value);
           }}
         />
+
         <button
           className='add__task--submit'
           onClick={(event) => {
             handleSubmitNewTask(event);
           }}
-        >
-          Save
-        </button>
-      </form>
+        />
 
-      <span className='alert'>
-        {alertMessage}
-      </span>
-    </>
+      </form>
+    </section>
   );
 };
 

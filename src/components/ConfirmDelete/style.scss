@@ -10,4 +10,48 @@
   &.dark {
     color: vars.$white;
   }
+
+  &--text {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  &--buttons {
+    @include flexCenter;
+
+    &--item {
+      border-radius: 5px;
+      margin: 1em;
+      padding: 1em 1.5em;
+      font-weight: bold;
+      transition: .2s;
+
+      &-confirm {
+        background: vars.$green;
+        color: vars.$white;
+      }
+
+      &-cancel {
+        background: vars.$red;
+        color: vars.$white;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .confirm__delete--buttons--item {
+
+    &-confirm:hover {
+      background: vars.$green-hover;
+    }
+
+    &-cancel:hover {
+      background: vars.$red-hover;
+    }
+  }
 }

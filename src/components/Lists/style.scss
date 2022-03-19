@@ -3,7 +3,8 @@
 
 .lists {
   @include flexCenter;
-  margin-top: 3em;
+  margin-top: 1em;
+  padding-bottom: 20vh;
 
   &--container {
     @include flexCenter;
@@ -15,6 +16,7 @@
 @media screen and (min-width: 850px) {
   .lists {
     margin-top: 10vh;
+    padding-bottom: 0;
 
     &--container {
       flex-direction: row;

@@ -31,28 +31,34 @@ const ConfirmDelete = ({ listID, listName, deleteList, setShowConfirmDelete }) =
 
         <p className='confirm__delete--text'>
           Êtes-vous certain de vouloir supprimer cette liste "{listName}" ?
-          <br />
+        </p>
+        
+        <p className='confirm__delete--text'>
           Toutes les tâches qu'elle contient seront perdues à tout jamais dans les méandres de l'oubli.
         </p>
 
-        <button
-          className='confirm__delete--button-confirm'
-          onClick={() => {
-            deleteList(listID);
-            closeModal();
-          }}
-        >
-          Confirmer
-        </button>
+        <section className='confirm__delete--buttons'>
 
-        <button
-          className='confirm__delete--button-cancel'
-          onClick={() => {
-            closeModal();
-          }}  
-        >
-          Annuler
-        </button>
+          <button
+            className='confirm__delete--buttons--item confirm__delete--buttons--item-confirm'
+            onClick={() => {
+              deleteList(listID);
+              closeModal();
+            }}
+          >
+            Confirmer
+          </button>
+
+          <button
+            className='confirm__delete--buttons--item confirm__delete--buttons--item-cancel'
+            onClick={() => {
+              closeModal();
+            }}  
+          >
+            Annuler
+          </button>
+
+        </section>
 
       </Modal>
     </div>
