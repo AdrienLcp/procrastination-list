@@ -7,6 +7,7 @@
   border-radius: 5px;
   padding: 1em;
   margin-bottom: 1em;
+  padding-bottom: 4em;
   min-height: 200px;
   width: 70vw;
 
@@ -24,13 +25,19 @@
 
   &--title {
     font-weight: bold;
+    margin-bottom: 1.5em;
   }
 }
 
 @media screen and (min-width: 850px) {
   .list {
     width: 20em;
-    padding: 2em;
-    margin: 2em;
+    padding: 2em 1em 4.5em;
+    margin: 4em 2em;
+
+    &--title {
+      margin-left: 0.25rem;
+      font-size: 1.2em;
+    }
   }
 }

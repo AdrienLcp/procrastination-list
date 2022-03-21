@@ -22,7 +22,7 @@ const Task = ({ taskID, content, listID, setLists }) => {
   };
 
   return (
-    <section className='task'>
+    <section className={theme === 'light' ? 'task light' : 'task dark'}>
 
       <p className='task--content'>
         {content}

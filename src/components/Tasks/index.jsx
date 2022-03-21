@@ -19,7 +19,7 @@ const Tasks = ({ tasks, listID, setLists }) => {
   return (
     <ul className='tasks'>
 
-      { !hasTasks ? 'Créer une tâche' : 
+      { !hasTasks ? 'Créer une tâche' :
 
         tasks.map((task, index) => {
           return (

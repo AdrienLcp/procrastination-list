@@ -78,6 +78,7 @@ const NewListForm = ({ setShowForm, setLists, setHasLists }) => {
             Choisissez un nom pour votre liste
 
             <input
+              autoFocus={true}
               type="text"
               className="new_list--name--input"
               placeholder={'Liste de choses à faire'}
