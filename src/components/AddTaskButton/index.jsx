@@ -66,7 +66,7 @@ const AddTaskButton = ({ listID, setLists }) => {
       <form className='add__task--form'>
         <input
           type='text'
-          className='add__task--input'
+          className='add__task--form--input'
           value={taskName}
           onChange={(event) => {
             handleChangeTaskName(event.target.value);
@@ -74,12 +74,11 @@ const AddTaskButton = ({ listID, setLists }) => {
         />
 
         <button
-          className='add__task--submit'
+          className='add__task--form--submit'
           onClick={(event) => {
             handleSubmitNewTask(event);
           }}
         />
-
       </form>
     </section>
   );

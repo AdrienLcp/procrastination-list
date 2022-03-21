@@ -4,7 +4,7 @@ import Task from '../Task';
 
 import './style.scss';
 
-const Tasks = ({ tasks }) => {
+const Tasks = ({ tasks, listID, setLists }) => {
 
   const [hasTasks, setHasTasks] = useState(false);
 
@@ -25,8 +25,10 @@ const Tasks = ({ tasks }) => {
           return (
             <li key={index}>
               <Task
-                ID={index}
+                taskID={index}
                 content={task}
+                listID={listID}
+                setLists={setLists}
               />
             </li>
           );

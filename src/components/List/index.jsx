@@ -26,6 +26,8 @@ const List = ({ ID, name, tasks, deleteList, setLists }) => {
 
       <Tasks
         tasks={tasks}
+        listID={ID}
+        setLists={setLists}
       />
 
       <AddTaskButton

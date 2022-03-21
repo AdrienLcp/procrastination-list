@@ -126,7 +126,7 @@
       @include posAbsolute(auto, 0, 1em, auto);
       width: 80px;
       height: 80px;
-      transition: 1s;
+      transition: .3s;
   
       &:hover {
         transition: .3s;
