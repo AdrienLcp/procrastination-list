@@ -1,6 +1,10 @@
 @use '../../styles/vars';
+@import '../../styles/mixins';
 
 .header {
+  @include animApparition(1s, 1s);
+  transform: translateX(-50px);
+  opacity: 0;
   padding: 3em;
 
   &.light {

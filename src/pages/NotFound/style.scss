@@ -1,0 +1,63 @@
+@use '../../styles/vars';
+@import '../../styles/mixins';
+
+.not__found {
+  @include flexCenter;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+
+  &.light {
+    background: vars.$white;
+    color: vars.$white;
+  }
+
+  &.dark {
+    background: vars.$black;
+    color: vars.$white;
+
+    .not__found--button {
+      color: vars.$white;
+    }
+  }
+
+  &--title {
+    @include animApparition;
+    transform: translateY(-50px);
+    opacity: 0;
+    font-size: 8em;
+    font-weight: bold;
+  }
+
+  &--subtitle {
+    @include animApparition;
+    transform: scale(0.5);
+    opacity: 0;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 2em 0.5rem 4em;
+  }
+
+  &--button {
+    @include animApparition;
+    transform: translateY(50px);
+    opacity: 0;
+    background: vars.$main-color;
+    padding: 1em;
+    border-radius: 5px;
+    transition: .2s;
+
+    &:active {
+      background: vars.$main-hover;
+      transform: scale(0.9);
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .not__found--button {
+    &:hover {
+      background: vars.$main-hover;
+    }
+  }
+}

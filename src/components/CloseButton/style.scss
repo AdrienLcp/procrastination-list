@@ -83,6 +83,7 @@
     }
 
     &:active {
+      background: vars.$red-hover;
       transform: translate(50%, -50%) scale(0.9);
     }
   }

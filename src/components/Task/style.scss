@@ -54,14 +54,27 @@
 @media screen and (min-width: 850px) {
   .task {
 
-    &:hover {
-      .task--delete {
-        opacity: 1;
-        background: rgba(255, 255, 255, 0.2);
+    &.light {
+      &:hover {
+        .task--delete {
+          opacity: 1;
+          background: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    &.dark {
+      &:hover {
+        .task--delete {
+          opacity: 1;
+          background: rgba(255, 255, 255, 0.2);
+        }
       }
     }
 
     &--delete {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
       transition: .2s;
       opacity: 0;
 

@@ -6,10 +6,23 @@
   margin-top: 1em;
   padding-bottom: 20vh;
 
+  &.light {
+    .lists--container {
+      color: vars.$black;
+    }
+  }
+
+  &.dark {
+    .lists--container {
+      color: vars.$white;
+    }
+  }
+
   &--container {
     @include flexCenter;
     flex-direction: column;
     width: 90vw;
+    color: white;
   }
 }
 

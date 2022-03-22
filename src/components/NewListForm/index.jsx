@@ -17,8 +17,8 @@ const NewListForm = ({ setShowForm, setLists, setHasLists }) => {
   const [alertMessage, setAlertMessage] = useState('');
 
   const handleChangeListName = (newName) => {
-    if (newName.length > 30) {
-      setAlertMessage('Le nom de votre liste ne doit pas dépasser 30 caractères');
+    if (newName.length > 50) {
+      setAlertMessage('Le nom de votre liste ne doit pas dépasser 50 caractères');
     } else {
       setAlertMessage('');
       setListName(newName);

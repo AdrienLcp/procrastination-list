@@ -2,6 +2,8 @@
 @import '../../styles/mixins';
 
 .list {
+  @include animApparition;
+  opacity: 0;
   position: relative;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -9,6 +11,7 @@
   margin-bottom: 1em;
   padding-bottom: 4em;
   min-height: 200px;
+  min-width: 260px;
   width: 70vw;
 
   &.light {

@@ -2,11 +2,12 @@
 @import '../../styles/mixins';
 
 .settings {
-  @include animApparition(1s, 1s);
+  @include animApparition(1s, 2s);
   @include posFixed(0, auto, auto, 0);
   @include flexCenter;
-  transform: translateY(-100%);
+  transform: translateY(50px);
   opacity: 0;
+  z-index: 10;
 
   &.light {
     .settings--container {
@@ -103,7 +104,7 @@
 @media screen and (min-width: 850px) {
   .settings {
     @include posFixed(auto, 1em, 0, auto);
-    transform: translateY(100%);
+    transform: translateY(50px);
 
     &.light {
       .settings--container {

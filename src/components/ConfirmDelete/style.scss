@@ -2,6 +2,7 @@
 @import '../../styles/mixins';
 
 .confirm__delete {
+  position: relative;
 
   &.light {
     color: vars.$black;

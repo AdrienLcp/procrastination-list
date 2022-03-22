@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { ThemeContext } from '../../context/ThemeContext';
 
 import List from '../List';
 
 import './style.scss';
 
 const Lists = ({ hasLists, setHasLists, lists, setLists }) => {
+
+  const { theme } = useContext(ThemeContext);
 
   const deleteList = (listID) => {
     const previousLists = JSON.parse(localStorage.getItem('lists'));
@@ -23,7 +27,7 @@ const Lists = ({ hasLists, setHasLists, lists, setLists }) => {
   };
 
   return (
-    <main className='lists'>
+    <main className={theme === 'light' ? 'lists light' : 'lists dark'}>
       <ul className='lists--container'>
 
         { !hasLists ? 'Aucune liste à afficher' :
