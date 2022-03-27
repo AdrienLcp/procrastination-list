@@ -31,7 +31,7 @@ const SettingsMenu = ({ userName, setUserName }) => {
   };
 
   return (
-    <div className={ theme === 'light' ? 'settings light' : 'settings dark'}>
+    <div className={theme === 'light' ? 'settings light' : 'settings dark'}>
 
       <section
         className='settings--container'

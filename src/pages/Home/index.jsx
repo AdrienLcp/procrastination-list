@@ -28,6 +28,14 @@ const Home = () => {
     } else {
       setHasLists(false);
     };
+
+    const previousUser = localStorage.getItem('user_name');
+
+    if (previousUser) {
+      setUserName(previousUser);
+
+      document.title = 'La liste de ' + previousUser;
+    };
   }, []);
 
   return (

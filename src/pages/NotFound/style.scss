@@ -39,9 +39,6 @@
   }
 
   &--button {
-    @include animApparition;
-    transform: translateY(50px);
-    opacity: 0;
     background: vars.$main-color;
     padding: 1em;
     border-radius: 5px;

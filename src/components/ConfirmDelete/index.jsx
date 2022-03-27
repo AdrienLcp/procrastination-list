@@ -30,7 +30,7 @@ const ConfirmDelete = ({ listID, listName, deleteList, setShowConfirmDelete }) =
       >
 
         <p className='confirm__delete--text'>
-          Êtes-vous certain de vouloir supprimer cette liste "{listName}" ?
+          Êtes-vous certain de vouloir supprimer la liste "{listName}" ?
         </p>
         
         <p className='confirm__delete--text'>

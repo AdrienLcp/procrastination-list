@@ -1,18 +1,35 @@
 import React, { useState, useContext } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
+
 import Tasks from '../Tasks';
 import ConfirmDelete from '../ConfirmDelete';
-
-import './style.scss';
 import AddTaskButton from '../AddTaskButton';
 import DeleteListButton from '../DeleteListButton';
 
-const List = ({ ID, name, tasks, deleteList, setLists }) => {
+import './style.scss';
+
+const List = ({ ID, name, tasks, setLists, setHasLists }) => {
 
   const { theme } = useContext(ThemeContext);
 
-  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);  
+  
+  const deleteList = (listID) => {
+    const previousLists = JSON.parse(localStorage.getItem('lists'));
+
+    if (previousLists.length === 1) {
+      localStorage.removeItem('lists');
+      setLists([]);
+      setHasLists(false);
+    } else {
+
+      previousLists.splice(listID, 1);
+
+      setLists(previousLists);
+      localStorage.setItem('lists', JSON.stringify(previousLists));
+    };
+  };
 
   return (
     <section className={theme === 'light' ? 'list light' : 'list dark'}>
