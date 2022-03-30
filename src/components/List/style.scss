@@ -13,6 +13,11 @@
   min-height: 200px;
   min-width: 260px;
   width: 70vw;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 
   &.light {
     border-color: vars.$black;

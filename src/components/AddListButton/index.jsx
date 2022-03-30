@@ -15,29 +15,35 @@ const AddListButton = ({ hasLists, setLists, setHasLists }) => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    if (hasLists) {
-      buttonRef.current.classList.remove('no_list');
-    } else {
+console.log(hasLists)
+    if (!hasLists) {
       buttonRef.current.classList.add('no_list');
-    }
+    } else if (hasLists) {
+      buttonRef.current.classList.remove('no_list');
+    };
+    console.log(hasLists)
   }, [hasLists]);
 
   return (
     <>
-      <button
+      <section 
         ref={buttonRef}
-        className={theme === 'light' ? 'add__list no_list light' : 'add__list no_list dark'}
-        onClick={() => {
-          setShowForm(true);
-        }}
+        className='button--container'
       >
-        <span className='add__list--icon'>
-          +
-        </span>
-        <label className='add__list--label'>
-          Créer une liste
-        </label>
-      </button>
+        <button
+          className={theme === 'light' ? 'add__list light' : 'add__list dark'}
+          onClick={() => {
+            setShowForm(true);
+          }}
+        >
+          <span className='add__list--icon'>
+            +
+          </span>
+          <label className='add__list--label'>
+            Créer une liste
+          </label>
+        </button>
+      </section>
 
       { showForm && (
         <NewListForm

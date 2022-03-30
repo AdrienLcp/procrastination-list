@@ -31,8 +31,16 @@ const List = ({ ID, name, tasks, setLists, setHasLists }) => {
     };
   };
 
+  const handleDrag = () => {
+    console.log('dragging');
+  };
+
   return (
-    <section className={theme === 'light' ? 'list light' : 'list dark'}>
+    <div
+      draggrable="true"
+      onDrag={handleDrag}
+      className={theme === 'light' ? 'list light' : 'list dark'}
+    >
       <h2 className='list--title'>
         {name}
       </h2>
@@ -60,7 +68,7 @@ const List = ({ ID, name, tasks, setLists, setHasLists }) => {
           setShowConfirmDelete={setShowConfirmDelete}
         />
       )}
-    </section>
+    </div>
   );
 };
 
