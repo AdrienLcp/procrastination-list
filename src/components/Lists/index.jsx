@@ -14,8 +14,10 @@ const Lists = ({ hasLists, setHasLists, lists, setLists }) => {
     <main className={theme === 'light' ? 'lists light' : 'lists dark'}>
       <ul className='lists--container'>
 
+        {/* If there is no list, we show this sentence */}
         { !hasLists ? 'Aucune liste à afficher' :
 
+          // or we map the lists and show them
           lists.map((list, index) => {
             return (
               <li key={index}>

@@ -13,8 +13,10 @@ const ConfirmDelete = ({ listID, listName, deleteList, setShowConfirmDelete }) =
   const confirmDeleteRef = useRef(null);
 
   const closeModal = () => {
+    // Smooth close modal
     confirmDeleteRef.current.style.opacity = '0';
 
+    // Then toggle the component
     setTimeout(() => {
       setShowConfirmDelete(false);
     }, 300);

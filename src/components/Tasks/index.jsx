@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Task from '../Task';
 
@@ -6,21 +6,13 @@ import './style.scss';
 
 const Tasks = ({ tasks, listID, setLists }) => {
 
-  const [hasTasks, setHasTasks] = useState(false);
-
-  useEffect(() => {
-    if (tasks === []) {
-      setHasTasks(false);
-    } else {
-      setHasTasks(true);
-    };
-  }, [tasks]);
-
   return (
     <ul className='tasks'>
 
-      { !hasTasks ? 'Créer une tâche' :
-
+      {/* If there is no task, we show nothing, an empty list */}
+      { tasks === [] ? '' :
+        
+        // If there are tasks, we show them
         tasks.map((task, index) => {
           return (
             <li key={index}>

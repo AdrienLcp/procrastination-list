@@ -41,11 +41,24 @@ const AddTaskButton = ({ listID, setLists }) => {
       addTaskRef.current.classList.remove('opened');
     };
 
-    setShowButton(true);
     setShowForm(false);
+    setShowButton(true);
   };
 
   const showInput = () => {
+
+    const handleEscapeKey = window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+          
+        addTaskRef.current.classList.remove('opened');
+        
+        setShowForm(false);
+        setShowButton(true);
+        
+        window.removeEventListener('keydown', handleEscapeKey);
+      };
+    });
+
     addTaskRef.current.classList.add('opened');
     
     setShowForm(true);

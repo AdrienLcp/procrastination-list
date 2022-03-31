@@ -20,12 +20,15 @@ const SettingsMenu = ({ userName, setUserName }) => {
   const buttonRef = useRef(null);
   const settingsRef = useRef(null);
 
+  // When user toggle the settings menu
   const openSettings = () => {
+    // We add the right classes for opening it in CSS
     buttonRef.current.classList.add('opened');
     settingsRef.current.classList.add('opened');
   };
 
   const closeSettings = () => {
+    // Or remove them for close it
     buttonRef.current.classList.remove('opened');
     settingsRef.current.classList.remove('opened');
   };

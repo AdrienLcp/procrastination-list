@@ -18,10 +18,11 @@ const Home = () => {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-
+    // If the user has previous lists saved in his navigator,
     const hasPreviousLists = localStorage.getItem('lists');
 
     if (hasPreviousLists !== null) {
+      // We update the state for lists from data in local storage
       setHasLists(true);
       const previousLists = JSON.parse(localStorage.getItem('lists'));
       setLists(previousLists);
@@ -29,11 +30,14 @@ const Home = () => {
       setHasLists(false);
     };
 
+    // If the user set a user name previously,
     const previousUser = localStorage.getItem('user_name');
 
     if (previousUser) {
+      // We update it too
       setUserName(previousUser);
 
+      // And we update the document title
       document.title = 'La liste de ' + previousUser;
     };
   }, []);

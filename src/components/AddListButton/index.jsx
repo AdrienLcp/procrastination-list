@@ -15,13 +15,11 @@ const AddListButton = ({ hasLists, setLists, setHasLists }) => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-console.log(hasLists)
     if (!hasLists) {
       buttonRef.current.classList.add('no_list');
     } else if (hasLists) {
       buttonRef.current.classList.remove('no_list');
     };
-    console.log(hasLists)
   }, [hasLists]);
 
   return (
